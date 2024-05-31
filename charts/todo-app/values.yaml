@@ -1,0 +1,47 @@
+replicaCount: 1
+image:
+  repository: 644435390668.dkr.ecr.ap-south-1.amazonaws.com/daniel-todo
+  tag: "latest"
+
+service:
+  port: 5000
+
+ingress:
+  host: daniel-porfolio.ddns.net
+  path: /
+  pathType: Prefix
+  tls:
+    enabled: true
+    secretName: daniel-todo-tls
+    
+
+certIssuer:
+  email: danirdd92@gmail.com
+  privateKeyName: "ingress-crt-pk"
+
+mongodb:
+  architecture: standalone
+  useStatefulSet: true
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 512Mi
+    limits:
+      cpu: 150m
+      memory: 1024Mi
+  readinessProbe:
+    enabled: false
+  livenessProbe:
+    enabled: false
+  persistence:
+    enabled: true
+    size: 1Gi
+  arbiter:
+    enabled: false
+  auth:
+    enabled: false
+  service:
+    ports:
+      mongodb: 27017
+

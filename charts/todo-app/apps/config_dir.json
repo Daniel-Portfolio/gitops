@@ -1,0 +1,13 @@
+{
+  "appName": "todo-app",
+  "userGivenName": "todo-app",
+  "destNamespace": "default",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "tree/main/apps/todo-app",
+  "srcRepoURL": "https://github.com/Daniel-Portfolio/gitops.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null,
+  "exclude": "",
+  "include": ""
+}
