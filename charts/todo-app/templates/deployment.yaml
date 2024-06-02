@@ -15,7 +15,7 @@ spec:
         app: {{ .Release.Name }}
     spec:
       containers:
-      - image: "{{ .Values.image.repository }}:{{ .Release.appVersion }}"
+      - image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
         name: {{ .Release.Name }}
         ports:
         - containerPort: 5000
